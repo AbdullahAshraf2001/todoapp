@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/ui/screens/bottom_sheets/add_bottom_sheet.dart';
-import 'package:todoapp/ui/utilites/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = "home";
+
   const HomeScreen({super.key});
 
   @override
@@ -21,34 +21,34 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget buildFab() =>
-      FloatingActionButton(
-        onPressed: (){
-          showModalBottomSheet(context: context,
+  Widget buildFab() => FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
               isScrollControlled: true,
               builder: (_) => Padding(
-            padding: MediaQuery.of(context).viewInsets,
-            child: AddBottomSheet(),
-          ));
+                    padding: MediaQuery.of(context).viewInsets,
+                    child: AddBottomSheet(),
+                  ));
         },
         child: Icon(Icons.add),
       );
 
   Widget bottomNavigationBar() => BottomAppBar(
-    notchMargin: 8,
-    shape: CircularNotchedRectangle(),
-    clipBehavior: Clip.hardEdge,
-    child: BottomNavigationBar(items: const [
+        notchMargin: 8,
+        shape: CircularNotchedRectangle(),
+        clipBehavior: Clip.hardEdge,
+        child: BottomNavigationBar(items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
             label: "",
           ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.settings_outlined),
-        label: "",
-      ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings_outlined),
+            label: "",
+          ),
         ]),
-  );
+      );
 
   PreferredSizeWidget buildAppBar() => AppBar(
         title: Text("To Do List"),
